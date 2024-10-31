@@ -8,7 +8,7 @@ import { connection } from "./src/DB/conectiionDB.js"
 import authRoutes from "./src/Router/auth.routes.js"
 
 const app = express()
-const port = 3000
+const port = 3100
 
 app.use(express.json())
 app.use(cors())
