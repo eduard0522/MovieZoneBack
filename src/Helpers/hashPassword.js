@@ -1,7 +1,7 @@
-import bcrypt from "bcrypt"
+import bcrypt from 'bcrypt'
 
 export const hashPassword = async (passPlain) => {
-  const hash = bcrypt.hash(passPlain,10)
+  const hash = bcrypt.hash(passPlain, 10)
   try {
     return hash
   } catch (error) {
@@ -9,14 +9,14 @@ export const hashPassword = async (passPlain) => {
   }
 }
 
-export const comparePassword = async (plainPassword , hashedPassword) => {
-  console.log(plainPassword , hashedPassword
+export const comparePassword = async (plainPassword, hashedPassword) => {
+  console.log(plainPassword, hashedPassword
   )
-    const validate = bcrypt.compare(plainPassword, hashedPassword)
+  const validate = bcrypt.compare(plainPassword, hashedPassword)
 
-    try { 
-      return validate
-    } catch (error) {
-        return error
-    }
+  try {
+    return validate
+  } catch (error) {
+    return error
+  }
 }

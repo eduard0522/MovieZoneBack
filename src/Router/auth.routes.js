@@ -1,12 +1,14 @@
-import { Router } from "express";
+import { Router } from 'express'
 
+import { Register, Login } from '../Controllers/auth.controller.js'
+import { isAuthenticated } from '../Middlewares/ValidateAutehtication.js'
 
-import { register, login } from "../Controllers/auth.controller.js";
+const router = Router()
 
-
-const router = Router();
-
-router.post("/register",  register)
-router.post("/login", login)
+router.post('/register', Register)
+router.post('/login', Login)
+router.get('/home', isAuthenticated, (req, res) => {
+  res.send('Welcome, ')
+})
 
 export default router

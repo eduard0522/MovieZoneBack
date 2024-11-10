@@ -1,10 +1,11 @@
-import { Router } from "express";
+import { Router } from 'express'
 
-import { createUser, getUserByEmail, Login } from "../Controllers/User.js";
+import { getUserByEmail } from '../Controllers/User.js'
+import { Login, Register } from '../Controllers/auth.controller.js'
 
 const router = Router()
 
-router.post("/" , createUser)
-router.get("/:email",getUserByEmail)
-router.post("/login", Login)
-export default router;
+router.post('/', Register)
+router.get('/:email', getUserByEmail)
+router.post('/login', Login)
+export default router
