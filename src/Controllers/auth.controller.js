@@ -9,7 +9,7 @@ export const Register = async (req, res) => {
   const hashedPassword = await hashPassword(password)
   const ifExistUser = await User.findOne({ email })
   if (ifExistUser) {
-    return res.status(400).json({ message: 'Este usuario ya existe!' })
+    return res.status(400).json({ message: 'Este correo ya se encuentra registrado!' })
   }
   const newUser = new User({ username, email, password: hashedPassword })
 
