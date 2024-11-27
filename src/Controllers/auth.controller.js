@@ -44,8 +44,9 @@ export const Login = async (req, res) => {
     const token = generateToken(user.username, user._id)
     res
       .cookie('acess_token', token, {
-        httpOnly: true,
-        secure: process.env.NODE_ENV === 'production'
+        sameSite: 'none',
+        secure: true,
+        httpOnly: false
       })
       .status(200).json({ token, username: user.username })
   } catch (error) {
